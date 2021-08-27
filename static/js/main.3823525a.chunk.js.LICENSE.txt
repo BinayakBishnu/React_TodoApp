@@ -1,0 +1,11 @@
+//! ^^ { useRef } to enable referencing elements, here, to be able to take input
+
+//! ^^{ useState } to define state
+
+//! always do this
+
+//! but todos erased when reloaded: use useEffect to store locally
+
+//! to store todos in locally to prevent deletion in reloads
+
+//!mapping the Todo object from Todo.js
