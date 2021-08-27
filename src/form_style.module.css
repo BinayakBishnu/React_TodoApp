@@ -1,0 +1,18 @@
+.form_style {
+    /* background-color: blue; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 8%;
+    margin-bottom:10%;
+}
+
+.seperator {
+    width: 10px;
+}
+
+.add_btn {
+    height: 2em;
+}
