@@ -5,8 +5,14 @@
     justify-content: center;
     align-items: center;
 
-    margin-top: 8%;
-    margin-bottom:10%;
+    margin-top: 0%;
+    margin-bottom: 8%;
+}
+
+.todo_input {
+    padding-left: 3px;
+    color: green;
+    font-weight: 600;
 }
 
 .seperator {

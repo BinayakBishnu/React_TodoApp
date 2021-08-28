@@ -6,6 +6,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import TodoList from "./TodoList";
 import parent_styles from "./parent_style.module.css";
 import form_styles from "./form_style.module.css";
+import full_list from "./full_list.module.css";
+import ConditionCss from "./ConditionCss"
 
 import { v4 as uuid } from "uuid";
 // import Todo_Form from './Form';
@@ -34,9 +36,14 @@ function App() {
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
   },
-    //? the below array list dependencies which if changed will call the function
+    //? the below array lists dependencies which if changed will call the function
     [todos])
   //^ only stores but does not load
+
+  function add_btn_actions() {
+    handleAddTodo();
+    example_onoff();
+  }
 
   function handleAddTodo() {
     const name = todoNameRef.current.value
@@ -72,27 +79,42 @@ function App() {
     setTodos(newTodos)
   }
 
+  let example_show = true;
+  function example_onoff() {
+    // example_show = true;
+  }
+
+  // document.body.style.backgroundColor = "green";
+  document.body.style.margin = 0;
+
+
   return (
-    <div className={parent_styles.parent_div}>
-      {/* <TodoList todos={todos} /> */}
-      {/* after adding toggleTodo... */}
+    <div className={parent_styles.bg_div}>
+      <div className={parent_styles.parent_div}>
+        {/* <TodoList todos={todos} /> */}
+        {/* after adding toggleTodo... */}
 
-      <form className={form_styles.form_style}>
-        <input ref={todoNameRef} type="text" className="todo_input"></input>
-        <div className={form_styles.seperator}></div>
-        <input type="submit" value="Add Todo" onClick={handleAddTodo} className={form_styles.add_btn}></input>
-      </form>
-      {/* <Todo_Form /> */}
+        <form className={form_styles.form_style}>
+          <input ref={todoNameRef} type="text" placeholder="Type here" className={form_styles.todo_input}></input>
+          <div className={form_styles.seperator}></div>
+          <input type="submit" value="Add Todo" onClick={add_btn_actions} className={form_styles.add_btn}></input>
+        </form>
+        {/* <Todo_Form /> */}
 
-      <TodoList todos={todos} toggleTodo={toggleTodo} />
+        <ConditionCss example_style={example_show} />
 
-      <p className={parent_styles.number_left}>{todos.filter(todo => !todo.complete).length} left to do</p>
+        <div className={full_list.parent_list}>
+          <TodoList todos={todos} toggleTodo={toggleTodo} />
+        </div>
 
-      <div className={parent_styles.clear_btns}>
-        <button onClick={handleClearTodo} className={parent_styles.indi_clear_btn}>Clear Completed</button>
-        <button onClick={handleClearAll} className={`${parent_styles.indi_clear_btn} ${parent_styles.clear_all_btn}`}>Clear All</button>
+        <p className={parent_styles.number_left}>{todos.filter(todo => !todo.complete).length} left to do</p>
+
+        <div className={parent_styles.clear_btns}>
+          <button onClick={handleClearTodo} className={parent_styles.indi_clear_btn}>Clear Completed</button>
+          <button onClick={handleClearAll} className={`${parent_styles.indi_clear_btn} ${parent_styles.clear_all_btn}`}>Clear All</button>
+        </div>
+        {/* <div>0 left to do</div> */}
       </div>
-      {/* <div>0 left to do</div> */}
     </div>
   );
 }

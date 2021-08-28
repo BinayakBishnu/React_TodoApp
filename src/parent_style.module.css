@@ -1,22 +1,41 @@
+.bg_div {
+    background-color: blueviolet;
+    height: 100vh;
+    margin: 0%;
+    padding: 0%;
+}
+
 .parent_div {
     background-color: rgb(0, 75, 173);
+    box-shadow: inset 0px 0px 20px;
 
     width: fit-content;
-    height: 50vh;
+    min-height: 50vh;
 
-    padding: 1% 1%;
+    padding: 8% 2% 8% 2%;
 
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-    display:flex;
+    display: flex;
     flex-direction: column;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     align-items: center;
-
     border-radius: 10px;
+}
+
+.number_left {
+    background-color: rgb(255, 123, 0);
+
+    text-align: center;
+    width: fit-content;
+    padding: 0.5% 4%;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* box-shadow:inset 0px 0px 10px 0px rgb(156, 65, 29); */
 }
 
 .clear_btns {
@@ -27,7 +46,7 @@
     align-items: center;
 
     width: 75%;
-    margin: auto;
+    /* margin: auto; */
 }
 
 .indi_clear_btn {
@@ -37,14 +56,4 @@
 
 .clear_all_btn {
     background-color: rgba(255, 0, 0, 0.8);
-}
-
-.number_left {
-    background-color:rgb(255, 123, 0);
-
-    text-align: center;
-    width: fit-content;
-    padding: 0.5% 4%;
-    margin-left: auto;
-    margin-right: auto;
 }
